@@ -13,6 +13,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]){
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+        NSLog(@"第一次启动");
+    }else{
+        NSLog(@"已经不是第一次启动了");
+    }
     return YES;
 }
 							
